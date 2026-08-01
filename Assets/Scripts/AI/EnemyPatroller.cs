@@ -1,10 +1,41 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPatroller : MonoBehaviour
 {
     [SerializeField] private float detectionRange = 10f;
     [SerializeField] private float viewAngle = 120f;
+
+    [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject[] waypoints;
+    private int waypointIndex = 0;
+
+    private void Start()
+    {
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private void Patrol()
+    {
+        if (agent.remainingDistance <= agent.stoppingDistance && (!agent.hasPath || agent.velocity.sqrMagnitude < 0.01f))
+        {
+            SetNextWaypoint();
+        }
+    }
+
+    private void SetNextWaypoint()
+    {
+        agent.SetDestination(waypoints[waypointIndex].transform.position);
+        waypointIndex = (waypointIndex + 1) % waypoints.Length;
+    }
 
     private void OnDrawGizmosSelected()
     {

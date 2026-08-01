@@ -1757,6 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatroller
   detectionRange: 5
   viewAngle: 120
+  agent: {fileID: 0}
   waypoints:
   - {fileID: 1379801077}
   - {fileID: 1005104092}
@@ -3808,6 +3809,7 @@ GameObject:
   - component: {fileID: 1018559635}
   - component: {fileID: 1018559634}
   - component: {fileID: 1018559633}
+  - component: {fileID: 1018559638}
   m_Layer: 7
   m_Name: EnemyPatroller2
   m_TagString: Enemy
@@ -3829,6 +3831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatroller
   detectionRange: 5
   viewAngle: 120
+  agent: {fileID: 0}
   waypoints:
   - {fileID: 1668897800}
   - {fileID: 1891336179}
@@ -3922,6 +3925,19 @@ Transform:
   - {fileID: 1018038681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1018559638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018559632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1ae5e3dc8a6c8419e1c79eae3269af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
+  agent: {fileID: 1018559634}
 --- !u!1 &1020369084
 GameObject:
   m_ObjectHideFlags: 0
@@ -6943,7 +6959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce488f04a12d9d41b4d9c8edd9ed311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  hasKey: 0
+  HasKey: 0
   respawnPoint: {x: 27, y: 0, z: -27}
   player: {fileID: 1438219598}
 --- !u!4 &1755325491
@@ -8292,6 +8308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatroller
   detectionRange: 5
   viewAngle: 120
+  agent: {fileID: 0}
   waypoints:
   - {fileID: 1929789244}
   - {fileID: 639039476}
@@ -8378,7 +8395,7 @@ Transform:
   m_GameObject: {fileID: 2065463983}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 15.999998, y: 0, z: 12.750006}
+  m_LocalPosition: {x: 27.04, y: 0, z: 12.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8398,11 +8415,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   agent: {fileID: 2065463985}
-  waypoints:
-  - {fileID: 1929789245}
-  - {fileID: 639039477}
-  - {fileID: 932248989}
-  - {fileID: 531778795}
 --- !u!1 &2072055329
 GameObject:
   m_ObjectHideFlags: 0
