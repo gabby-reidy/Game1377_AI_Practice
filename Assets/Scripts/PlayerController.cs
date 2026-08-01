@@ -17,8 +17,10 @@ public class PlayerController : MonoBehaviour
         InputSystemActions = new InputSystem_Actions();
         playerActions = InputSystemActions.Player;
 
-        agent = GetComponent<NavMeshAgent>();
-        targetPosition = transform.position;
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
     }
 
     // Update is called once per frame
@@ -39,6 +41,10 @@ public class PlayerController : MonoBehaviour
         playerActions.Disable();
     }
 
+    /// <summary>
+    /// Uses raycast from mouse and updates nav agents destination accordingly
+    /// </summary>
+    /// <param name="context"></param>
     private void ClickToMove(InputAction.CallbackContext context)
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -61,6 +67,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
             GameManager.Instance.HasKey = true;
+            Debug.Log(GameManager.Instance.HasKey);
             Destroy(collision.gameObject);
         }
 
@@ -68,7 +75,7 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.Instance.HasKey)
             {
-
+                Destroy(collision.gameObject); // to test if our condition is working
             }
         }
     }

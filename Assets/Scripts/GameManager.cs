@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
+    /// <summary>
+    /// resets player to starting position using a vector3 set in inspector
+    /// </summary>
     public void ResetPlayerToStart()
     {
         NavMeshAgent agent = player.GetComponent<NavMeshAgent>();

@@ -20,7 +20,7 @@ public class EnemyPatroller : MonoBehaviour
 
     private void Update()
     {
-        
+        Patrol();
     }
 
     private void Patrol()
@@ -30,7 +30,9 @@ public class EnemyPatroller : MonoBehaviour
             SetNextWaypoint();
         }
     }
-
+    /// <summary>
+    /// goes through array of patrol points and moves agent accordingly
+    /// </summary>
     private void SetNextWaypoint()
     {
         agent.SetDestination(waypoints[waypointIndex].transform.position);
