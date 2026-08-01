@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     public bool hasKey;
+
+    [SerializeField] private Vector3 respawnPoint;
+    [SerializeField] private GameObject player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -25,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetPlayerToStart()
     {
-
+        NavMeshAgent agent = player.GetComponent<NavMeshAgent>();
+        agent.Warp(respawnPoint);
     }
 }

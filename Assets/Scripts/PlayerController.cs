@@ -44,4 +44,12 @@ public class PlayerController : MonoBehaviour
             agent.SetDestination(targetPosition);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.Instance.ResetPlayerToStart();
+        }
+    }
 }
