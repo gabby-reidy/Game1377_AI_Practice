@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
         playerActions.Enable();
     }
 
+    private void OnDisable()
+    {
+        playerActions.Click.performed -= ClickToMove;
+        playerActions.Disable();
+    }
+
     private void ClickToMove(InputAction.CallbackContext context)
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -50,6 +56,20 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             GameManager.Instance.ResetPlayerToStart();
+        }
+
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            GameManager.Instance.HasKey = true;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            if (GameManager.Instance.HasKey)
+            {
+
+            }
         }
     }
 }

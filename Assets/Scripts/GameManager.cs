@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool hasKey;
+    public bool HasKey;
 
     [SerializeField] private Vector3 respawnPoint;
     [SerializeField] private GameObject player;
